@@ -1,0 +1,21 @@
+﻿@model IkProjesi_1.Models.Personel
+@{
+    ViewBag.Title = "KisiSil";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Merhabalar, @Model.Ad @Model.Soyad Silenecektir. Eminmisiniz ? </h2>
+
+<form action="@Url.Action("KisiSil","Personel", new {area="Admin"})" method="post">
+    @Html.HiddenFor(x => x.Ad)
+    @Html.HiddenFor(x => x.Soyad)
+    @Html.HiddenFor(x => x.SirketNumarasi)
+    @Html.HiddenFor(x => x.CreatedOn)
+    @Html.HiddenFor(x => x.EditedOn)
+    @Html.HiddenFor(x => x.UnvanId)
+    <button type="submit" class="btn btn-primary">Gönder</button>
+
+</form>
+
+
+<a class="btn btn-danger" type="submit" href="@Url.Action("KisiListesi","Personel",new {area="Admin"  })">Vazgeç</a>

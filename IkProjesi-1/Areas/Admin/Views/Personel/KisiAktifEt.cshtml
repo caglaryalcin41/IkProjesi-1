@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "KisiAktifEt";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>Merhabalar, @ViewBag.Ad Olan Personel Aktif Edilecektir. Eminmisiniz ? </h2>
+
+<form action="@Url.Action("KisiAktifEt","Personel", new {area="Admin"})" method="post">
+
+    <button type="submit" class="btn btn-primary">Gönder</button>
+
+</form>
+
+
+<a class="btn btn-danger" href=" @Url.Action("KisiAktifEtOn","Personel" ,new {area="Admin", Id = ViewBag.Id })  ">Aktif Et</a>
+
+<a class="btn btn-danger" href="@Url.Action("KisiListesi","Personel",new {area="Admin"  })">Vazgeç</a>

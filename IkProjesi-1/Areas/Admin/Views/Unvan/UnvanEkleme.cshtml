@@ -1,0 +1,17 @@
+﻿@model IkProjesi_1.Models.Unvan
+@{
+    ViewBag.Title = "UnvanEkleme";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Merhabalar, Unvan Ekleme Sayfası</h2>
+
+<form action="@Url.Action("UnvanEkleme","Unvan","Admin")" method="post">
+
+    <div class="form-group col-6">
+        @Html.Label("Unvan Adı")
+        @Html.TextBoxFor(x => x.ReservedName, new { @class = "form-control" })
+    </div> 
+    <button type="submit" class="btn btn-primary">Gönder</button>
+</form>
+

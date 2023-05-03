@@ -1,0 +1,18 @@
+﻿@model IkProjesi_1.Models.Unvan
+@{
+    ViewBag.Title = "UnvanSil";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Merhabalar, @Model.ReservedName Silenecektir. Eminmisiniz ? </h2>
+
+<form action="@Url.Action("UnvanSil","Unvan", new {area="Admin"})" method="post">
+    @Html.HiddenFor(x => x.ReservedName) 
+    @Html.HiddenFor(x => x.CreatedOn)
+    @Html.HiddenFor(x => x.EditedOn)
+    <button type="submit" class="btn btn-primary">Gönder</button>
+
+</form>
+
+
+<a class="btn btn-danger" type="submit" href="@Url.Action("UnvanListesi","Unvan",new {area="Admin"  })">Vazgeç</a>

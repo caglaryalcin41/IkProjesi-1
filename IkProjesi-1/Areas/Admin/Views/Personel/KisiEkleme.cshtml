@@ -1,0 +1,31 @@
+﻿@model IkProjesi_1.Models.Personel
+@{
+    ViewBag.Title = "KisiEkleme";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Merhabalar, Personel Ekleme Sayfası</h2>
+
+<form action="@Url.Action("KisiEkleme","Personel","Admin")" method="post">
+
+    <div class="form-group col-6">
+        @Html.LabelFor(x => x.Ad)
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Ad, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group col-6">
+        @Html.Label("Personel Soyadı")
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+    </div>
+    <div class="form-group col-6">
+        @Html.Label("Personel Şirket Numarası")
+        @Html.TextBoxFor(x => x.SirketNumarasi, new { @class = "form-control", type = "number" })
+    </div>
+    <div class="form-group col-6">
+        @Html.LabelFor(x => x.UnvanId)
+        @Html.DropDownListFor(x=>x.UnvanId, null, "Seçiniz", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UnvanId, null, new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-primary">Gönder</button>
+</form>
+

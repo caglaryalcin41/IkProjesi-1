@@ -1,0 +1,52 @@
+﻿@model List<IkProjesi_1.Models.Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Merhabalar, Personel Kayıt Sistemine Hoş Geldiniz.</h2>
+
+ 
+<h2>Aktif Personel Listesi</h2>
+<div class="col-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Personel Ad</td>
+                <td>Personel Soyad</td>
+                <td>Personel Şirket No</td>
+                <td>Personel Ünvan</td> 
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Ad</th>
+                    <th scope="row">@item.Soyad</th>
+                    <th scope="row">@item.SirketNumarasi</th>
+                    <th scope="row">
+                        @if (item.Unvan2 != null)
+                        {
+                            @item.Unvan2.ReservedName
+                        }
+                        else
+                        {
+                            <b>Unvan Kaydı Yoktur</b>
+                        }
+
+
+                    </th>
+
+
+ 
+
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+</div>

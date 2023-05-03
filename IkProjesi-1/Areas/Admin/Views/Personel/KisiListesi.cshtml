@@ -1,0 +1,62 @@
+﻿@model List<IkProjesi_1.Models.Personel>
+@{
+    ViewBag.Title = "KisiListesi";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Kisi Listesi</h2>
+<div class="col-12">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <td>Personel Ad</td>
+                <td>Personel Soyad</td>
+                <td>Personel Şirket No</td>
+                <td>Personel Ünvan</td>
+                <td>İşlemler</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Ad</th>
+                    <th scope="row">@item.Soyad</th>
+                    <th scope="row">@item.SirketNumarasi</th>
+                    <th scope="row">
+                        @if (item.Unvan2 != null)
+                        {
+                            @item.Unvan2.ReservedName
+                        }
+                        else
+                        {
+                         <b>Unvan Kaydı Yoktur</b> 
+                        }
+                     
+
+                    </th>
+                
+
+
+
+                    <th scope="row"><a href="@Url.Action("KisiDuzenle","Personel", new {Area="Admin", Id = item.Id})" class="btn btn-primary"> Düzenle</a></th>
+
+                    @if (item.AktifMi == 1)
+                    {
+                        <th scope="row"><a href="@Url.Action("KisiSil","Personel", new {Area="Admin", Id = item.Id})" class="btn btn-outline-danger"> Sil</a></th>
+                    }
+                    else
+                    {
+                        <th scope="row"><a href="@Url.Action("KisiAktifEt","Personel", new {Area="Admin", Id = item.Id})" class="btn btn-outline-success"> Aktif Et</a></th>
+                    }
+
+
+                </tr>
+                    }
+               
+            </tbody>
+    </table>
+
+
+</div>
