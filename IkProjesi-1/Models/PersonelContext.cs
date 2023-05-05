@@ -15,5 +15,10 @@ namespace IkProjesi_1.Models
         } 
        public DbSet<Personel> Personel41 { get; set; } 
         public DbSet<Unvan> Unvan { get; set; }
+        public DbSet<Roller> Roller { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<WebItem> WebItem { get; set; }
+        public DbSet<ct_RolePrivilege> ct_RolePrivilege { get; set; }
+        public DbSet<ct_UserRole> ct_UserRole { get; set; }
     }
 }
